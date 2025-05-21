@@ -1,5 +1,10 @@
 export const revalidate = 600;
 export const dynamicParams = true;
+export async function generateStaticParams() {
+  return [{
+    id: 1
+  }]
+}
 
 export default async function Product({ params }: { params: Promise<{id: string}>}) {
   const {id} = await params;
