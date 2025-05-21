@@ -1,11 +1,9 @@
 export const revalidate = 600
 
-export default async function Product({ params }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/product/${params.id}`)
+export default async function Product({ params }: Promise<{id: string}>) {
+  const {id} = await params;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/product/${id}`)
   const data = await res.json()
-  return <div>
-    <h1>Product {params.id}</h1>
-    <div>Content: {data.time}</div>
-    <div>Domain: {data.domain}</div>
+  return <div>{JSON.stringify(data)}
   </div>
 }
