@@ -1,7 +1,7 @@
 export const revalidate = 600;
 
 export default async function Page() {
-  const res = await fetch(`https://your-api.com/api/product/1`);
+  const res = await fetch(`https://b6e33301-2517-4d30-ae96-98e9a71a7f0d-00-1tghupfuenc4c.kirk.replit.dev/api/product/1`);
   const data = await res.json();
 
   return (
