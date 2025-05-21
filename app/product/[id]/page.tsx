@@ -1,4 +1,5 @@
-export const revalidate = 600
+export const revalidate = 600;
+export const dynamicParams = true;
 
 export default async function Product({ params }: { params: Promise<{id: string}>}) {
   const {id} = await params;
