@@ -4,13 +4,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from 'next/cache';
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
+  const { searchParams } = request.nextUrl;
   const path = decodeURIComponent(searchParams.get("path") ?? '');
-  console.log({path, url: request.url});
+  console.log({path, url: request.nextUrl});
   try {
     // @ts-ignore
     await revalidatePath(path);
-    return NextResponse.redirect(new URL(path, request.host));
+    return NextResponse.redirect(new URL(path, request.nextUrl.host))
   } catch (err) {
     console.log(err);
     return NextResponse.json({ message: "Error revalidating" }, { status: 500 });
