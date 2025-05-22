@@ -25,6 +25,6 @@ export default async function Product({ params }: { params: Promise<{id: string}
 
   return <div>
     <div>{JSON.stringify(data)}</div>
-    <div><Link href={`/api/invalidate?path=${encodeURIComponent(`product/${id}`)}`}>invalidate cache of this page</Link></div>
+    <div><Link href={`/api/invalidate?path=${encodeURIComponent(`/product/${id}`)}`}>invalidate cache of this page</Link></div>
   </div>
 }
