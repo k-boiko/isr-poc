@@ -16,7 +16,7 @@ export default async function Product({ params }: { params: Promise<{id: string}
   console.log({symbols, l: symbols.length});
   console.log({symbolsResolved, l: symbolsResolved.length});
   if (kstoresymbol) {
-    const store = (paramsResolved as any)[kstoresymbol];
+    const store = (params as any)[kstoresymbol];
     console.log({store});
   }
   const {id} = paramsResolved;
