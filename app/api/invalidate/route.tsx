@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache';
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const path = decodeURIComponent(searchParams.get("path") ?? '');
-  console.log({path});
+  console.log({path, url: request.url});
   try {
     // @ts-ignore
     await revalidatePath(path);
