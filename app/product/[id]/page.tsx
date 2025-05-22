@@ -1,4 +1,6 @@
 
+import Link from 'next/link';
+
 export const revalidate = 600;
 
 export async function generateStaticParams() {
