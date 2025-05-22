@@ -11,6 +11,7 @@ export default async function Product(ars: { params: Promise<{id: string}>}, ...
   const symbols = Object.getOwnPropertySymbols(ars);
   const kstoresymbol = symbols.find(s => s.toString().includes('kResourceStore'));
   console.log({kstoresymbol});
+  console.log({symbols});
   if (kstoresymbol) {
     const store = (ars as any)[kstoresymbol];
     console.log({store});
