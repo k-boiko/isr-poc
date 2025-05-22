@@ -1,6 +1,6 @@
 export const revalidate = 600;
 
-export default async function Page(context) {
+export default async function Page(context: any) {
   const {params} = context;
   console.log({context});
   console.log({params});
