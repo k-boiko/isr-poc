@@ -12,7 +12,7 @@ export default async function Product(ars: { params: Promise<{id: string}>}, ...
   const kstoresymbol = symbols.find(s => s.toString().includes('kResourceStore'));
   console.log({kstoresymbol});
   if (kstoresymbol) {
-    const store = ars[kstoresymbol];
+    const store = ars[kstoresymbol] as any;
     console.log({store});
   }
   console.log({ars2});
