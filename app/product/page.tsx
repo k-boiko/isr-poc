@@ -9,7 +9,8 @@ export default async function Page(context: any) {
   let host = 'host';
   if (kstoresymbol) {
     const store = (params as any)[kstoresymbol];
-    host = store.url.host;
+    console.log(store);
+    host = store?.url?.host;
   }
   const res = await fetch(`https://b6e33301-2517-4d30-ae96-98e9a71a7f0d-00-1tghupfuenc4c.kirk.replit.dev/api/product/1?host=${host}`);
   const data = await res.json();
