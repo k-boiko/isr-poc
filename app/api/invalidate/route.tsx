@@ -9,6 +9,7 @@ export async function GET(request: NextRequest) {
     await (NextResponse as any).revalidate(path);
     return NextResponse.redirect(new URL(path, request.url))
   } catch (err) {
+    console.log(err);
     return NextResponse.json({ message: "Error revalidating" }, { status: 500 });
   }
 }
