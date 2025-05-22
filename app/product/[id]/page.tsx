@@ -20,6 +20,9 @@ export default async function Product({ params }: { params: Promise<{id: string}
   const {id} = paramsResolved;
   const res = await fetch(`https://b6e33301-2517-4d30-ae96-98e9a71a7f0d-00-1tghupfuenc4c.kirk.replit.dev/api/product/${id}?host=${host}`);
   const data = await res.json();
-  return <div>{JSON.stringify(data)}
+
+  return <div>
+    <div>{JSON.stringify(data)}</div>
+    <div><Link href={`/api/invalidate?path=${encodeUriComponent(`product/${id}`)}`}>invalidate cache of this page</Link></div>
   </div>
 }
