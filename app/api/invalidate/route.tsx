@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const path = searchParams.get("path") ?? '';
+  const path = decodeURIComponent(searchParams.get("path")) ?? '';
+  console.log({path});
   try {
     // @ts-ignore
     await (NextResponse as any).revalidate(path);
