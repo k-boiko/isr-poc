@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const path = decodeURIComponent(searchParams.get("path")) ?? '';
+  const path = decodeURIComponent(searchParams.get("path") ?? '');
   console.log({path});
   try {
     // @ts-ignore
