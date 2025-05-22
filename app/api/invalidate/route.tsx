@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
   try {
     // @ts-ignore
     await revalidatePath(path);
-    return NextResponse.redirect(new URL(path, request.url))
+    return NextResponse.redirect(new URL(path, request.host));
   } catch (err) {
     console.log(err);
     return NextResponse.json({ message: "Error revalidating" }, { status: 500 });
