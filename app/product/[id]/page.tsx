@@ -6,7 +6,6 @@ export async function generateStaticParams() {
 }
 
 export default async function Product({ params }: { params: Promise<{id: string}>}) {
-  const { params } = ars;
   const paramsResolved = await params;
   console.log(paramsResolved);
   const symbolsResolved = Object.getOwnPropertySymbols(paramsResolved);
