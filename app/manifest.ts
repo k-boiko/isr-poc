@@ -1,4 +1,4 @@
 export default async function manifest(context: any) {
-    console.log(context);
+    console.log({context});
     return {};
 }
