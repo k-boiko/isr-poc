@@ -1,5 +1,3 @@
-export const revalidate = 600;
-
 export default async function Page(context: any) {
   const {params} = context;
   const symbols = Object.getOwnPropertySymbols(params);
@@ -9,16 +7,18 @@ export default async function Page(context: any) {
     const store = (params as any)[kstoresymbol];
     host = store?.url?.host;
   }
-  const a = {
-    d1: new Intl.DisplayNames(`de`, { type: 'language'}).of('gsw') ,
-    d: new Intl.DisplayNames(`deu`, { type: 'language'}).of('gsw') ,
-    s: new Intl.DisplayNames(`gsw`, { type: 'language'}).of('gsw') ,
-    e: new Intl.DisplayNames(`en`, { type: 'language'}).of('gsw') 
-  };
+  const apiUrl = 'https://b6e33301-2517-4d30-ae96-98e9a71a7f0d-00-1tghupfuenc4c.kirk.replit.dev';
+  const res = await fetch(`${apiUrl}/api/product/1?host=${host}`, {
+    // @ts-expect-error: next is Next.js-specific
+    next: {
+      revalidate: 24 * 60 * 60
+    }
+  });
+  const data = await res.json();
 
   return (
     <div>
-      <div>{JSON.stringify(a)}</div>
+      <div>{data}</div>
     </div>
   );
 }
