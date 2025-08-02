@@ -12,7 +12,6 @@ export default async function Product({ params }: { params: Promise<{id: string}
   const {id} = await params;
   const apiUrl = 'https://b6e33301-2517-4d30-ae96-98e9a71a7f0d-00-1tghupfuenc4c.kirk.replit.dev';
   const res = await fetch(`${apiUrl}/api/product/${id}?host=${host}`, {
-      // @ts-expect-error: next is Next.js-specific
       next: {
         revalidate: 24 * 60 * 60
       }
