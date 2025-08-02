@@ -17,7 +17,7 @@ export default async function Page(context: any) {
 
   return (
     <div>
-      <div>{data}</div>
+      <div>{JSON.stringify(data)}</div>
     </div>
   );
 }
