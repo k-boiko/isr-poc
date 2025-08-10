@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+export const revalidate = 10000;
+
 export default function Home() {
   console.log('ISR for / is called');
   async function onClick() {

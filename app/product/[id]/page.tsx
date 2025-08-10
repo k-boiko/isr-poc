@@ -1,6 +1,12 @@
 
 import Link from 'next/link';
 
+export const revalidate = 10000;
+export const dynamic = 'force-static';
+export const getStaticParams() {
+  return [];
+}
+
 export default async function Product({ params }: { params: Promise<{id: string}>}) {
   const symbols = Object.getOwnPropertySymbols(params);
   const kstoresymbol = symbols.find(s => s.toString().includes('kResourceStore'));

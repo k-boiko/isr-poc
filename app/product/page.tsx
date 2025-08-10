@@ -1,3 +1,6 @@
+
+export const revalidate = 10000;
+
 export default async function Page(context: any) {
   const {params} = context;
   const symbols = Object.getOwnPropertySymbols(params);
