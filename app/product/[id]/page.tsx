@@ -10,15 +10,16 @@ export default async function Product({ params }: { params: Promise<{id: string}
     host = store.url.host;
   }
   const {id} = await params;
-  const apiUrl = 'https://b6e33301-2517-4d30-ae96-98e9a71a7f0d-00-1tghupfuenc4c.kirk.replit.dev';
-  const res = await fetch(`${apiUrl}/api/product/${id}`, {
-      next: {
-        revalidate: 24 * 60 * 60
-      }
-    });
-  const data = await res.json();
+  console.log('ISR for product/[id] is called');
+
+  async function onClick() {
+    'use server';
+    const apiUrl = 'https://b6e33301-2517-4d30-ae96-98e9a71a7f0d-00-1tghupfuenc4c.kirk.replit.dev';
+    const res = await fetch(`${apiUrl}/api/product/${id}`);
+    const data = await res.json();
+    console.log('from server action', data);
+  }
   return <div>
-    <div>{JSON.stringify(data)}</div>
-    <div><Link href={`/api/invalidate?path=${encodeURIComponent(`/product/${id}`)}`} prefetch={false}>invalidate cache of this page</Link></div>
+    <div><button onClick={onClick}>call server action</button></div>
   </div>
 }
