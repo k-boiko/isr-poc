@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 export const revalidate = 10000;
 export const dynamic = 'force-static';
-export function getStaticParams() {
-  return [];
+export function generateStaticParams() {
+    return [];
 }
 
 export default async function Product({ params }: { params: Promise<{id: string}>}) {
